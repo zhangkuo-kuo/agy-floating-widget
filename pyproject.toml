@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agy-floating-widget"
+version = "0.1.0"
+description = "Cross-platform desktop floating widget for Antigravity IDE & CLI context and quota monitoring."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.9"
+dependencies = []
+
+[project.optional-dependencies]
+fast = ["psutil>=5.9"]
+
+[project.scripts]
+agy-widget = "agy_floating_widget.__main__:main"
+
+[project.gui-scripts]
+agy-widget-gui = "agy_floating_widget.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["agy_floating_widget*"]
