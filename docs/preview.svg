@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="580" height="232" viewBox="0 0 580 232">
+  <rect width="580" height="232" rx="8" fill="#0d1117"/>
+  <!-- Outer widget border (#3b82f6) and body (#16161a) -->
+  <rect x="10" y="10" width="560" height="212" rx="4" fill="#3b82f6"/>
+  <rect x="11" y="11" width="558" height="210" rx="3" fill="#16161a"/>
+
+  <!-- Row 1: Compact Capsule -->
+  <text x="20" y="31" font-family="Segoe UI, DejaVu Sans, sans-serif" font-size="11" font-weight="bold" fill="#38bdf8">[ALL]</text>
+  <text x="58" y="31" font-family="Segoe UI, DejaVu Sans, sans-serif" font-size="12" font-weight="bold" fill="#9090a2">[PIN 1/8]</text>
+  <text x="122" y="31" font-family="Consolas, DejaVu Sans Mono, monospace" font-size="13" font-weight="bold" fill="#60a5fa">&lt;</text>
+  <text x="136" y="31" font-family="Segoe UI, DejaVu Sans, sans-serif" font-size="12" font-weight="bold" fill="#f0f0f4">[web-app] auth-fix (Flash-3.8): 86.4k/256k 33.8%</text>
+  <text x="415" y="31" font-family="Consolas, DejaVu Sans Mono, monospace" font-size="13" font-weight="bold" fill="#60a5fa">&gt;</text>
+  <text x="428" y="31" font-family="Segoe UI, DejaVu Sans, sans-serif" font-size="12" fill="#383848">|</text>
+  <text x="438" y="31" font-family="Segoe UI, DejaVu Sans, sans-serif" font-size="12" font-weight="bold" fill="#22c55e">Quota: 85%</text>
+  <text x="510" y="31" font-family="Segoe UI, DejaVu Sans, sans-serif" font-size="11" fill="#9090a2">Reset: 2h45m</text>
+
+  <!-- Row 2: Details -->
+  <text x="20" y="53" font-family="Segoe UI, DejaVu Sans, sans-serif" font-size="11" fill="#9090a2">Steps: 24</text>
+  <text x="76" y="53" font-family="Segoe UI, DejaVu Sans, sans-serif" font-size="11" fill="#383848">|</text>
+  <text x="88" y="53" font-family="Segoe UI, DejaVu Sans, sans-serif" font-size="11" fill="#9090a2">Responses: 18</text>
+  <text x="172" y="53" font-family="Segoe UI, DejaVu Sans, sans-serif" font-size="11" fill="#383848">|</text>
+  <text x="184" y="53" font-family="Segoe UI, DejaVu Sans, sans-serif" font-size="11" font-weight="bold" fill="#60a5fa">[Refresh]</text>
+
+  <!-- Divider -->
+  <line x1="18" y1="64" x2="562" y2="64" stroke="#242430" stroke-width="1"/>
+
+  <!-- Drawer Tabs -->
+  <rect x="20" y="72" width="54" height="20" rx="2" fill="#1c1c24"/>
+  <text x="27" y="86" font-family="Segoe UI, DejaVu Sans, sans-serif" font-size="11" font-weight="bold" fill="#9090a2">IDE (5)</text>
+
+  <rect x="80" y="72" width="54" height="20" rx="2" fill="#1c1c24"/>
+  <text x="87" y="86" font-family="Segoe UI, DejaVu Sans, sans-serif" font-size="11" font-weight="bold" fill="#9090a2">CLI (3)</text>
+
+  <rect x="140" y="72" width="58" height="20" rx="2" fill="#2563eb"/>
+  <text x="148" y="86" font-family="Segoe UI, DejaVu Sans, sans-serif" font-size="11" font-weight="bold" fill="#ffffff">ALL (8)</text>
+
+  <!-- Drawer Session Rows -->
+  <text x="20" y="114" font-family="Consolas, DejaVu Sans Mono, monospace" font-size="11" font-weight="bold" fill="#38bdf8">[x]</text>
+  <text x="46" y="114" font-family="Segoe UI, DejaVu Sans, sans-serif" font-size="11" fill="#f0f0f4">[web-app] auth-fix (Flash-3.8 256k) - 86.4k/256k (33.8%)</text>
+
+  <text x="20" y="138" font-family="Consolas, DejaVu Sans Mono, monospace" font-size="11" font-weight="bold" fill="#9090a2">[ ]</text>
+  <text x="46" y="138" font-family="Segoe UI, DejaVu Sans, sans-serif" font-size="11" fill="#f59e0b">[api] refactor-rpc (Sonnet 200k) - 142.1k/200k (71.1%)</text>
+
+  <text x="20" y="162" font-family="Consolas, DejaVu Sans Mono, monospace" font-size="11" font-weight="bold" fill="#9090a2">[ ]</text>
+  <text x="46" y="162" font-family="Segoe UI, DejaVu Sans, sans-serif" font-size="11" fill="#ef4444">[core] legacy-migration (Opus 200k) - 172.0k/200k (86.0%)</text>
+
+  <text x="20" y="186" font-family="Consolas, DejaVu Sans, sans-serif" font-size="11" font-weight="bold" fill="#9090a2">[ ]</text>
+  <text x="46" y="186" font-family="Segoe UI, DejaVu Sans, sans-serif" font-size="11" fill="#f0f0f4">[cli] clean-logs (Flash 256k) - 12.0k/256k (4.7%)</text>
+
+  <text x="20" y="208" font-family="Consolas, DejaVu Sans, monospace" font-size="11" font-weight="bold" fill="#9090a2">[ ]</text>
+  <text x="46" y="208" font-family="Segoe UI, DejaVu Sans, sans-serif" font-size="11" fill="#f0f0f4">[docs] update-readme (Pro 128k) - 28.5k/128k (22.3%)</text>
+</svg>

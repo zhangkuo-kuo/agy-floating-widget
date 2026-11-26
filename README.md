@@ -25,17 +25,9 @@
 
 ### UI Preview
 
-```text
-+-----------------------------------------------------------------------------------+
-| [ALL]  [PIN 1/12]  <  [frontend] feat-login (Flash-3.8): 86.4k/256k 33.8%  >  |  Quota: 85%  Reset: 2h45m |
-| Steps: 24  |  Responses: 18  |  [Refresh]                                                                   |
-+-----------------------------------------------------------------------------------+
-| [IDE (8)]   [CLI (4)]   [ALL (12)]                                                                           |
-| [x] [frontend] feat-login (Flash-3.8 256k) - 86.4k/256k (33.8%)                                              |
-| [ ] [backend] api-refactor (Sonnet 200k) - 142.1k/200k (71.1%)                                              |
-| [ ] [bat] clean-transcripts (CLI) - 12.0k/256k (4.7%)                                                        |
-+-----------------------------------------------------------------------------------+
-```
+<p align="center">
+  <img src="docs/preview.svg" alt="agy-floating-widget UI preview">
+</p>
 
 ### Highlights & Why Use This?
 
@@ -57,6 +49,10 @@
 
 #### Installation & Launch
 ```bash
+# One-line install from GitHub
+pip install git+https://github.com/zhangkuo-kuo/agy-floating-widget.git
+
+# Or clone for local development
 git clone https://github.com/zhangkuo-kuo/agy-floating-widget.git
 cd agy-floating-widget
 pip install -e .
