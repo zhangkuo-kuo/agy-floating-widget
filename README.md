@@ -1,124 +1,126 @@
 # agy-floating-widget
 
-[English](#english) | [中文](#中文)
+<p align="center">
+  <strong>Lightweight Desktop Floating Widget for Google Antigravity (IDE & CLI)</strong><br>
+  Real-time Quota Tracking • Context Window Monitoring • Multi-Session Drawer & Carousel • Zero Heavy Dependencies
+</p>
+
+<p align="center">
+  <a href="https://github.com/zhangkuo-kuo/agy-floating-widget/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a>
+  <img src="https://img.shields.io/badge/python-3.9+-3776AB.svg?logo=python&logoColor=white" alt="Python 3.9+">
+  <img src="https://img.shields.io/badge/platform-Windows%20%7C%20Linux-lightgrey.svg" alt="Platform">
+  <a href="https://github.com/zhangkuo-kuo/agy-floating-widget/stargazers"><img src="https://img.shields.io/github/stars/zhangkuo-kuo/agy-floating-widget?style=flat" alt="GitHub Stars"></a>
+  <a href="https://github.com/zhangkuo-kuo/agy-floating-widget/issues"><img src="https://img.shields.io/github/issues/zhangkuo-kuo/agy-floating-widget" alt="GitHub Issues"></a>
+</p>
+
+<p align="center">
+  <a href="#english">English</a> • <a href="#中文说明">中文说明</a>
+</p>
 
 ---
 
 ## English
 
-A lightweight, zero-required-dependency Python (`tkinter`) desktop floating widget for **Google Antigravity** (IDE & CLI). Displays account quota, reset countdown, and real-time context window usage across multiple sessions in a compact always-on-top capsule with an expandable session drawer.
+`agy-floating-widget` is a standalone, always-on-top desktop floating capsule designed for developers using **Google Antigravity** (both Antigravity IDE and `antigravity-cli`). It monitors your active model quota percentage, reset countdown, and per-session context token usage in real time, without burning LLM tokens or cluttering your editor status bar.
 
-### Features
+### UI Preview
 
-- **Cross-Platform (Windows & Linux)**:
-  - Windows: High-DPI aware, Win32 `HWND_TOPMOST` enforcement, PowerShell process/port discovery fallback.
-  - Linux: X11/Wayland-friendly font fallback, `<Button-4>/<Button-5>` scroll wheel support, `/proc` + `ss`/`lsof` discovery fallback.
-- **IDE + CLI Session Aggregation**: Connects to the local Antigravity `language_server` RPC (`127.0.0.1`) and scans `~/.gemini/antigravity/brain` & `~/.gemini/antigravity-cli/brain` transcripts.
-- **Dynamic Model Adaptation**: Automatically resolves model names and context limits from local RPC responses and session transcripts—no hardcoded personal model list required. Supports custom overrides via `custom_models` in `~/.gemini/agy-floating-widget/widget_config.json`.
-- **Interactive Capsule & Drawer**:
-  - Drag anywhere to move; double-click to expand/collapse the scrollable session drawer.
-  - Mouse wheel or `<` / `>` to cycle sessions; click `[ALL]` / `[IDE]` / `[CLI]` to filter categories.
-  - Right-click menu: Refresh, Pin/Unpin, Rename session alias, Filter short CLI sessions, Reset position, Exit.
+```text
++-----------------------------------------------------------------------------------+
+| [ALL]  [PIN 1/12]  <  [frontend] feat-login (Flash-3.8): 86.4k/256k 33.8%  >  |  Quota: 85%  Reset: 2h45m |
+| Steps: 24  |  Responses: 18  |  [Refresh]                                                                   |
++-----------------------------------------------------------------------------------+
+| [IDE (8)]   [CLI (4)]   [ALL (12)]                                                                           |
+| [x] [frontend] feat-login (Flash-3.8 256k) - 86.4k/256k (33.8%)                                              |
+| [ ] [backend] api-refactor (Sonnet 200k) - 142.1k/200k (71.1%)                                              |
+| [ ] [bat] clean-transcripts (CLI) - 12.0k/256k (4.7%)                                                        |
++-----------------------------------------------------------------------------------+
+```
 
-### Requirements
+### Highlights & Why Use This?
 
+- ⚡ **Zero-Overhead & Lightweight**: Built with standard library `tkinter`, launching in milliseconds with ~25MB RAM usage. No Electron, no Node.js runtime, no browser needed.
+- 🔄 **IDE + CLI Unified Hub**: Automatically detects local Antigravity `language_server` on `127.0.0.1` and parses local transcripts (`~/.gemini/antigravity/brain` and `~/.gemini/antigravity-cli/brain`).
+- 🧠 **Dynamic Model Detection**: Discovers model IDs and token limits dynamically from local RPC and session metadata (Gemini 3.x, Gemini 4, Claude Sonnet/Opus, GPT-OSS, etc.).
+- 📌 **Session Pinning & Renaming**: Pin your critical sessions to the carousel and assign readable nicknames via right-click menu.
+- 🛡️ **Cross-Platform**:
+  - **Windows**: High-DPI awareness, Win32 `HWND_TOPMOST` persistence, silent PowerShell discovery fallback.
+  - **Linux**: Clean X11/Wayland font fallback, `<Button-4>/<Button-5>` scroll wheel events, `/proc` + `ss`/`lsof` socket inspection.
+
+### Quick Start
+
+#### Requirements
 - Python 3.9+ with `tkinter`
-  - **Ubuntu/Debian**: `sudo apt install python3-tk`
-  - **Windows**: `tkinter` is included in standard Python installers.
-- Optional: `psutil` (`pip install -e ".[fast]"`) for faster cross-platform process discovery.
+  - Linux (Ubuntu/Debian): `sudo apt install python3-tk`
+  - Windows: Included with standard Python.
+- *(Optional)* `psutil` for microsecond socket lookup: `pip install -e ".[fast]"`
 
-### Installation & Launch
-
+#### Installation & Launch
 ```bash
 git clone https://github.com/zhangkuo-kuo/agy-floating-widget.git
 cd agy-floating-widget
 pip install -e .
-```
 
-Launch:
-
-```bash
-# Installed CLI command
+# Launch command
 agy-widget
 
-# Windows (no console window)
+# Windows silent background launch (no terminal window)
 agy-widget-gui
 # or
 pythonw -m agy_floating_widget
-
-# Run directly without installing
-python -m agy_floating_widget
 ```
 
-### Configuration
+### Interactive Gestures & Shortcuts
 
-Runtime state and config are stored in `~/.gemini/agy-floating-widget/`:
-- `widget_config.json`:
+| Action | Target | Behavior |
+| :--- | :--- | :--- |
+| **Drag** | Capsule body | Move floating capsule across screens |
+| **Double Click** | Capsule body | Toggle expandable session drawer |
+| **Mouse Wheel** | Capsule body | Cycle next / previous active session |
+| **Click `[ALL]/[IDE]/[CLI]`** | Category label | Filter sessions between IDE, CLI, or all |
+| **Right Click** | Capsule or Refresh | Context menu (Pin, Rename, Filter short CLI, Reset pos, Exit) |
+
+---
+
+## 中文说明
+
+`agy-floating-widget` 专为 **Google Antigravity**（IDE 与 CLI）深度使用者打造的轻量桌面置顶悬浮窗。无需启动笨重的扩展或网页，实时在桌面显示当前账号配额剩余、重置倒计时与每个会话的上下文窗口（Token）占用率。
+
+### 为什么选择它？
+
+- 🚀 **极度轻量，零强制外部依赖**：基于 Python 标准库 `tkinter` 开发，内存占用仅约 20~30MB，秒开即用。
+- 🔗 **IDE 与 CLI 双向打通**：同时探测本地 `language_server`（`127.0.0.1`）RPC 接口与本地磁盘日志，自动聚合 Antigravity IDE 与命令行 `antigravity-cli` 的会话。
+- 🎯 **自动适配任意模型**：动态提取最新模型配额与上限（支持 Gemini 3.x/4 系列、Claude Sonnet/Opus、本地模型等），彻底告别手动维护模型配置。
+- 📌 **会话管理**：支持右键为长会话命名别名、Pin 钉住核心会话、过滤仅有几步的短命 CLI 会话。
+- 💻 **深度双系统适配**：
+  - Windows：高分屏 DPI 缩放补偿、`HWND_TOPMOST` 防遮挡保活、PowerShell 自动探测。
+  - Linux：适配字体平替、Linux 滚轮事件兼容、`/proc` 与 `ss`/`lsof` 端口探测。
+
+### 交互操作速查
+
+- **鼠标拖拽**：按住胶囊主体任意位置可随意拖拽，多显示器自由停靠。
+- **双击胶囊**：快速展开/折叠下方详细的滚动会话抽屉。
+- **滚轮滚动**：在胶囊上滚动滚轮直接切换前一个/后一个会话；在抽屉内滚动平滑查看历史会话。
+- **点击分类标签**：在 `[ALL]`、`[IDE]`、`[CLI]` 之间快速过滤。
+- **右键菜单**：提供立即刷新、钉住会话、自定义重命名、过滤短会话、复位屏幕中央及退出。
+
+### 配置文件说明
+
+运行状态保存在用户目录 `~/.gemini/agy-floating-widget/` 下（如 `widget_config.json`），绝不污染项目目录与全局环境。
 
 ```json
 {
   "filter_short_cli": true,
   "min_cli_steps": 10,
   "cli_active_grace_min": 15,
-  "current_category": "ALL",
-  "custom_models": {
-    "MODEL_ID_EXAMPLE": ["CustomName", 256000]
-  }
+  "current_category": "ALL"
 }
 ```
 
----
+## Contributing
 
-## 中文
-
-一个轻量级、零强制第三方依赖（基于 Python `tkinter`）的 **Google Antigravity**（IDE & CLI）桌面悬浮监控小部件。通过置顶双行胶囊 + 可折叠滚动抽屉，实时展示账号配额（Quota）、重置倒计时以及多会话上下文窗口占用。
-
-### 核心特性
-
-- **跨平台支持（Windows & Linux）**：
-  - Windows：高分屏 DPI 感知、Win32 `HWND_TOPMOST` 置顶保活、PowerShell 进程探测兜底。
-  - Linux：自动回退系统字体、支持 `<Button-4>/<Button-5>` 滚轮翻页与抽屉滚动、支持 `/proc` + `ss`/`lsof` 进程探测兜底。
-- **IDE + CLI 会话聚合**：自动探测本地 Antigravity `language_server`（`127.0.0.1`）RPC 接口，并结合 `~/.gemini/antigravity/brain` 与 `~/.gemini/antigravity-cli/brain` 本地日志实现离线兜底与标题/工作区提取。
-- **动态模型适配**：运行时自动从本地 RPC 配额响应与会话 `modelUsage` / `transcript.jsonl` 动态识别模型名称与上下文上限，无需硬编码个人模型列表；也可在 `~/.gemini/agy-floating-widget/widget_config.json` 中通过 `custom_models` 自定义覆盖。
-- **交互操作**：
-  - 拖拽胶囊任意位置移动；双击展开/收起会话抽屉列表。
-  - 滚轮或点击 `<` / `>` 轮播会话；点击 `[ALL]` / `[IDE]` / `[CLI]` 切换分类。
-  - 右键菜单：立即刷新、展开/收起、Pin 钉住当前会话、自定义重命名、过滤短 CLI 会话、复位居中、退出。
-
-### 环境要求
-
-- Python 3.9+（需包含 `tkinter`）
-  - **Ubuntu/Debian**：`sudo apt install python3-tk`
-  - **Windows**：官方 Python 安装包默认自带 `tkinter`。
-- 可选：`psutil`（`pip install -e ".[fast]"`），开启更快的跨平台进程与端口探测。
-
-### 安装与启动
-
-```bash
-git clone https://github.com/zhangkuo-kuo/agy-floating-widget.git
-cd agy-floating-widget
-pip install -e .
-```
-
-启动方式：
-
-```bash
-# 安装后直接命令启动
-agy-widget
-
-# Windows 无黑框后台启动
-agy-widget-gui
-# 或
-pythonw -m agy_floating_widget
-
-# 不安装直接以模块运行
-python -m agy_floating_widget
-```
-
-### 配置文件
-
-运行配置与状态（Pin 列表、别名、PID 等）保存在 `~/.gemini/agy-floating-widget/`，不会污染项目目录。
+Pull Requests and Issues are warmly welcomed! Please feel free to suggest features or submit fixes.
 
 ## License
 
-[MIT](LICENSE)
+This project is licensed under the [MIT License](LICENSE).

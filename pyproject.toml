@@ -5,14 +5,51 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "agy-floating-widget"
 version = "0.1.0"
-description = "Cross-platform desktop floating widget for Antigravity IDE & CLI context and quota monitoring."
+description = "Lightweight cross-platform desktop floating widget for Google Antigravity (IDE & CLI) context window and quota monitoring."
 readme = "README.md"
 license = { text = "MIT" }
 requires-python = ">=3.9"
+authors = [
+  { name = "zhangkuo-kuo" }
+]
+keywords = [
+  "antigravity",
+  "antigravity-cli",
+  "google-antigravity",
+  "gemini",
+  "floating-widget",
+  "quota-monitor",
+  "context-window",
+  "desktop-widget",
+  "developer-tools",
+  "tkinter"
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Environment :: Win32 (MS Windows)",
+  "Environment :: X11 Applications",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: Microsoft :: Windows",
+  "Operating System :: POSIX :: Linux",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Software Development :: User Interfaces",
+  "Topic :: System :: Monitoring",
+  "Topic :: Utilities"
+]
 dependencies = []
 
 [project.optional-dependencies]
 fast = ["psutil>=5.9"]
+
+[project.urls]
+Homepage = "https://github.com/zhangkuo-kuo/agy-floating-widget"
+Repository = "https://github.com/zhangkuo-kuo/agy-floating-widget.git"
+Issues = "https://github.com/zhangkuo-kuo/agy-floating-widget/issues"
 
 [project.scripts]
 agy-widget = "agy_floating_widget.__main__:main"
